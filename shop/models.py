@@ -17,6 +17,9 @@ class Category(models.Model):
     status = models.BooleanField(default=False, help_text="0-show,1-Hidden")
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return self.name
+
 
 class Product(models.Model):
     Category = models.ForeignKey(Category, on_delete=models.CASCADE)
