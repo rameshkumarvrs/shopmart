@@ -22,7 +22,7 @@ class Category(models.Model):
 
 
 class Product(models.Model):
-    Category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     name = models.CharField(max_length=200, null=False, blank=False)
     vendor = models.CharField(max_length=200, null=False, blank=False)
     product_image = models.ImageField(upload_to=getFileName, null=True, blank=True)

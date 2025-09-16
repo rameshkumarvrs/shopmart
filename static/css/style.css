@@ -4,3 +4,15 @@
     height: 60vh;
     overflow: hidden;
 }
+
+.old_price {
+    font-weight: bold;
+    color: red;
+}
+
+
+span.new_price {
+    font-weight: bold;
+    background-color: green;
+    color: white;
+}
