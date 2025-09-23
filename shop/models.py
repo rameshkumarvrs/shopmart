@@ -1,6 +1,7 @@
 from django.db import models
 import datetime
 import os
+from django.contrib.auth.models import User
 
 # Create your models here.
 
@@ -37,3 +38,20 @@ class Product(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Cart(models.Model):
+    user=models.ForeignKey(User, on_delete=models.CASCADE)
+    products=models.ForeignKey(Product, on_delete=models.CASCADE)
+    product_qty=models.IntegerField(null=False, blank=False) 
+    created_at = models.DateTimeField(auto_now_add=True)    
+
+
+    @property
+    def total_costs(self):
+        return self.product_qty * self.products.selling_price
+    
+
+class Favourite(models.Model):
+    user=models.ForeignKey(User, on_delete=models.CASCADE)
+    products=models.ForeignKey(Product, on_delete=models.CASCADE) 
+    created_at = models.DateTimeField(auto_now_add=True)     

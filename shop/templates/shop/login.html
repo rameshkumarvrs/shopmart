@@ -4,9 +4,8 @@
   <div class="container" style="margin-top:70px">
         <div class="row">
             <div class="col-12">
-                <h1>welcome to register page</h1>
+                <h1>User Login Ramesh</h1>
                 {% include 'shop/inc/message.html'%}
-                
             </div>
         </div>
 
@@ -18,37 +17,23 @@
                             {% csrf_token %}
                             <div class="mb-4">
                                 <label for="" class="from-label">User Name</label>
-                                {{form.username}}
+                                <input type="text" name="username" id="username" class="form-control" placeholder="Eneter the username">
                                 {%if form.errors.username%}
                                     <label for="" class="text-danger">{{form.errors.username}}</label>
                                 {%endif%}
                             </div>
-                             <div class="mb-4">
-                                <label for="" class="from-label">Email</label>
-                                {{form.email}}
-                                 {%if form.errors.email%}
-                                    <label for="" class="text-danger">{{form.errors.email}}</label>
-                                {%endif%}
-                            </div>
+                             
                              <div class="mb-4">
                                 <label for="" class="from-label">Password</label>
-                                {{form.password1}}
+                                 <input type="password" name="password" id="password" class="form-control" placeholder="Enter the Password">
                                  {%if form.errors.password1%}
                                     <label for="" class="text-danger">{{form.errors.password1}}</label>
                                 {%endif%}
                             </div>
-                             <div class="mb-4">
-                                <label for="" class="from-label">Password Confirmation</label>
-                                {{form.password2}}
-                                 {%if form.errors.password2%}
-                                    <label for="" class="text-danger">{{form.errors.password2}}</label>
-                                {%endif%}
-                            </div>
-                            <button type="submit" class="bbtn btn-primary">
-                              Register
+                             <button type="submit" class="bbtn btn-primary">
+                              Login
                             </button>
                         </form>
-                        <p class="my-2"> Already user? <a href="{% url 'login' %}">Login</a></p>
                     </div>
 
                 </div>
