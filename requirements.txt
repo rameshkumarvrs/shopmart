@@ -1,5 +1,6 @@
 Django<5,>=4.2
 dj-database-url>=1.2
+jazzmin
 gunicorn>=22.0
 psycopg2-binary>=2.9
 whitenoise>=6.5
