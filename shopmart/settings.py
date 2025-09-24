@@ -104,15 +104,23 @@ WSGI_APPLICATION = 'shopmart.wsgi.application'
 #     }
 # }
 
+# DATABASES = {
+#     'default': {
+#         'ENGINE': 'django.db.backends.mysql',
+#         'NAME': env("MYSQL_DB"),
+#         'USER': env("MYSQL_USER"),
+#         'PASSWORD': env("MYSQL_PASSWORD"),
+#         'HOST': env("MYSQL_HOST"),
+#         'PORT': env("MYSQL_PORT", default="3306"),
+#     }
+# }
+
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': env("MYSQL_DB"),
-        'USER': env("MYSQL_USER"),
-        'PASSWORD': env("MYSQL_PASSWORD"),
-        'HOST': env("MYSQL_HOST"),
-        'PORT': env("MYSQL_PORT", default="3306"),
-    }
+    "default": dj_database_url.parse(
+        os.getenv("DATABASE_URL"),
+        conn_max_age=600,
+        ssl_require=True,  # Render requires SSL for MySQL
+    )
 }
 
 
