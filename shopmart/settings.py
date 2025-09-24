@@ -120,9 +120,16 @@ DATABASES = {
     "default": dj_database_url.parse(
         os.getenv("DATABASE_URL"),
         conn_max_age=600,
-        ssl_require=True,  # Render requires SSL for MySQL
+        ssl_require=False,  # Render requires SSL for MySQL
     )
 }
+
+if DATABASES["default"]["ENGINE"] == "django.db.backends.mysql":
+    DATABASES["default"]["OPTIONS"] = {
+        "ssl": {
+            "ca": "/etc/ssl/certs/ca-certificates.crt",
+        }
+    }
 
 
 # Password validation
