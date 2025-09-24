@@ -122,7 +122,7 @@ DATABASES = {
         'NAME': os.environ.get('DB_NAME', 'shopmart_db_2ce6'),      # Database name from Render
         'USER': os.environ.get('DB_USER', 'shopmart_db_2ce6_user'),      # Database user
         'PASSWORD': os.environ.get('DB_PASSWORD', 'rws4FSo3IygOIlt3ueUduP3AyoMErVLz'),  # Database password
-        'HOST': os.environ.get('DB_HOST', 'dpg-d39ha48dl3ps73a8e1i0-a'),  # Render DB host
+        'HOST': os.environ.get('DB_HOST', 'dpg-d39ha48dl3ps73a8e1i0-a.render.com'),  # Render DB host
         'PORT': os.environ.get('DB_PORT', '3306'),              # PostgreSQL default port
     }
 }
