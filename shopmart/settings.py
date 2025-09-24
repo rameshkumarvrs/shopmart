@@ -117,9 +117,19 @@ WSGI_APPLICATION = 'shopmart.wsgi.application'
 # }
 
 DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',  # ✅ Correct backend
+        'NAME': os.environ.get('DB_NAME', 'shopmart_db_2ce6'),      # Database name from Render
+        'USER': os.environ.get('DB_USER', 'shopmart_db_2ce6_user'),      # Database user
+        'PASSWORD': os.environ.get('DB_PASSWORD', 'rws4FSo3IygOIlt3ueUduP3AyoMErVLz'),  # Database password
+        'HOST': os.environ.get('DB_HOST', 'dpg-d39ha48dl3ps73a8e1i0-a.render.com'),  # Render DB host
+        'PORT': os.environ.get('DB_PORT', '3306'),              # PostgreSQL default port
+    }
+}
+
+DATABASES = {
     "default": dj_database_url.parse(
         os.getenv("DATABASE_URL"),
-        os.getenv("MYSQL_HOST"),
         conn_max_age=600,
         ssl_require=False,  # Render requires SSL for MySQL
     )
