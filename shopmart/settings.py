@@ -119,6 +119,7 @@ WSGI_APPLICATION = 'shopmart.wsgi.application'
 DATABASES = {
     "default": dj_database_url.parse(
         os.getenv("DATABASE_URL"),
+        os.getenv("MYSQL_HOST"),
         conn_max_age=600,
         ssl_require=False,  # Render requires SSL for MySQL
     )
